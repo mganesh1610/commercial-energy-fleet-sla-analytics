@@ -1,0 +1,120 @@
+{
+  "generated_at_utc": "2026-11-17T19:57:40.025645+00:00",
+  "provenance": {
+    "opsd_url": "https://data.open-power-system-data.org/household_data/2020-04-15/household_data_60min_singleindex.csv",
+    "opsd_sha256": "15956440b27465686eae2abf5895cbc3dab80f934a891bcb2f4f944428e97d60",
+    "cec_inverters_url": "https://raw.githubusercontent.com/pvlib/pvlib-python/main/pvlib/data/sam-library-cec-inverters-2019-03-05.csv",
+    "cec_inverters_sha256": "c192252f0d61204df58fb0df95514a2aa529d88b45a236db7f16737661d616d8"
+  },
+  "scale": {
+    "hourly_fleet_intervals": 38454,
+    "total_facility_sensor_readings": 1132970,
+    "core_energy_asset_snapshots": 426619,
+    "deployed_sites": 11,
+    "monitored_energy_channels": 27,
+    "evaluated_asset_months": 620,
+    "cec_certified_inverter_models": 3262
+  },
+  "fleet_compliance_kpis": {
+    "fleet_hourly_uptime_pct": 95.5635,
+    "compliant_asset_months": 522,
+    "monthly_contract_sla_compliance_pct": 84.1935,
+    "verified_solar_pv_generation_kwh": 144802.58,
+    "verified_ev_charging_delivery_kwh": 3184.55,
+    "industrial_battery_charge_kwh": 1576.6,
+    "industrial_battery_discharge_kwh": 954.55,
+    "industrial_battery_round_trip_efficiency_pct": 60.55,
+    "telemetry_dropout_gap_incidents": 18927,
+    "negative_counter_resets_quarantined": 0
+  },
+  "quantitative_hypothesis_tests": {
+    "industrial_vs_residential_hourly_uptime_z_test": {
+      "rate_group_a": 0.982805,
+      "rate_group_b": 0.944175,
+      "diff_pp": 3.863,
+      "z_stat": 58.9412,
+      "p_value_two_sided": 0.0
+    },
+    "industrial_vs_residential_monthly_sla_z_test": {
+      "rate_group_a": 0.934579,
+      "rate_group_b": 0.811083,
+      "diff_pp": 12.3496,
+      "z_stat": 4.1281,
+      "p_value_two_sided": 3.658292413804538e-05
+    },
+    "summer_vs_winter_solar_capacity_utilization_welch_t": {
+      "n_group_a": 99,
+      "n_group_b": 119,
+      "mean_group_a": 0.187649,
+      "mean_group_b": 0.06003,
+      "diff": 0.127618,
+      "t_stat": 17.7772,
+      "df": 175.23,
+      "p_value_two_sided": 1.062373683250731e-70
+    }
+  },
+  "dq_gates_passed": 12,
+  "dq_gates_total": 12,
+  "dq_gates": [
+    {
+      "gate_id": "DQ-01",
+      "name": "OPSD SHA-256 cryptographic provenance match",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-02",
+      "name": "NREL/CEC Inverter Registry SHA-256 match",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-03",
+      "name": "All 11 deployed sites registered in dim_site_contract",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-04",
+      "name": "All 27 solar/storage/EV/grid channels normalized",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-05",
+      "name": "Cumulative meter telescoping conservation (last - first == pos + neg)",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-06",
+      "name": "Zero negative verified energy kWh in monthly SLA mart",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-07",
+      "name": "Uptime availability bounded strictly within [0, 1]",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-08",
+      "name": "Battery storage round-trip efficiency physically valid (50%-100%)",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-09",
+      "name": "3,200+ certified CEC inverter models loaded",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-10",
+      "name": "Lifecycle stage progression covers all 4 contractual phases",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-11",
+      "name": "SQLite foreign_key_check == 0 violations",
+      "passed": true
+    },
+    {
+      "gate_id": "DQ-12",
+      "name": "SQLite physical integrity_check == ok",
+      "passed": true
+    }
+  ]
+}

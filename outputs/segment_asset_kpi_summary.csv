@@ -1,0 +1,11 @@
+customer_segment,asset_type,asset_months,expected_hours,valid_hours,fleet_uptime_pct,compliant_asset_months,monthly_sla_compliance_pct,total_verified_kwh,total_gap_incidents
+industrial,ev_charger,16,10430,10427,99.9712,16,100.0,960.41,3
+industrial,grid_import,58,39223,37828,96.4434,52,89.6552,1443929.05,1395
+industrial,solar_pv,110,75296,74212,98.5603,102,92.7273,69535.35,1084
+industrial,storage_charge,15,9754,9753,99.9897,15,100.0,1576.6,1
+industrial,storage_discharge,15,9754,9753,99.9897,15,100.0,954.55,1
+public,grid_import,9,5674,4666,82.2348,0,0.0,76537.63,1008
+residential,ev_charger,29,20288,19918,98.1763,25,86.2069,2224.14,370
+residential,grid_export,85,59605,57217,95.9936,69,81.1765,31902.41,2388
+residential,grid_import,168,116273,105649,90.8629,127,75.5952,45737.12,10624
+residential,solar_pv,115,80322,78269,97.444,101,87.8261,75267.23,2053

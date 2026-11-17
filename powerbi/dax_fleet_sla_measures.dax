@@ -1,0 +1,45 @@
+// Power BI DAX Measures — Commercial Solar, Battery Storage & EV Charging Fleet SLA Dashboard
+
+Fleet Hourly Uptime % =
+DIVIDE(
+    SUM('fct_monthly_asset_sla'[valid_metered_hours]),
+    SUM('fct_monthly_asset_sla'[expected_commissioned_hours]),
+    0
+)
+
+Contractual SLA Compliance Rate % =
+DIVIDE(
+    SUM('fct_monthly_asset_sla'[sla_compliant_flag]),
+    COUNTROWS('fct_monthly_asset_sla'),
+    0
+)
+
+Verified Solar PV Generation (MWh) =
+DIVIDE(
+    CALCULATE(
+        SUM('fct_monthly_asset_sla'[verified_energy_kwh]),
+        'dim_energy_asset'[asset_type] = "solar_pv"
+    ),
+    1000.0,
+    0
+)
+
+Battery Round-Trip Efficiency % =
+VAR ChargeKWh =
+    CALCULATE(
+        SUM('fct_monthly_asset_sla'[verified_energy_kwh]),
+        'dim_energy_asset'[asset_type] = "storage_charge"
+    )
+VAR DischargeKWh =
+    CALCULATE(
+        SUM('fct_monthly_asset_sla'[verified_energy_kwh]),
+        'dim_energy_asset'[asset_type] = "storage_discharge"
+    )
+RETURN
+    DIVIDE(DischargeKWh, ChargeKWh, 0)
+
+SLA Breach Asset-Months =
+CALCULATE(
+    COUNTROWS('fct_monthly_asset_sla'),
+    'fct_monthly_asset_sla'[sla_compliant_flag] = 0
+)

@@ -1,0 +1,5 @@
+lifecycle_stage,asset_months,stage_uptime_pct,sla_compliance_pct,verified_kwh,gap_incidents
+1_Commissioning,27,91.5149,77.7778,79746.16,629
+2_Provisional_Acceptance,53,92.4924,67.9245,186023.81,2889
+3_Active_Warranty_SLA,304,95.4133,78.6184,1085810.67,10133
+4_Steady_State_OM,236,96.6984,95.7627,397043.85,5276
